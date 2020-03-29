@@ -17,7 +17,7 @@
    
 ### 附录：我的vscode插件及配置：
 #### 插件：
-1. brouser preview
+1. Brackets Light Pro
 2. C/C++
 3. C/C++ Compile Run
 4. C/C++ GNU Global
@@ -26,20 +26,16 @@
 7. Code Runner
 8. Community Material Theme
 9. Markdown All in One
-10.  Markdown Preview Enhanced
-11.  Material Theme
-12.  Material Theme Icons
-13.  One Dark Pro
-14.  TabOut
-15.  Vibrancy
-16.  vscode-fileheader
-17.  vscode-icons
+10.   Material Theme
+11.  Material Theme Icons
+12.  TabOut
+13.  vscode-fileheader
+14.  vscode-icons
 
 #### Git：
 gitforwindows.com -> [Download] -> [Install] -> 配置Git
 
 
 
-#### By Afordman Cai，如有问题，请发email至"theafordman@gmail.com"
-
-#### 感谢您看到这里。
+#### By Afordman Cai
+#### 如有问题，请发email至"theafordman@gmail.com"
