@@ -17,7 +17,7 @@
    
 ### 附录：我的vscode插件及配置：
 #### 插件：
-1. Brackets Light Pro
+1. Backgrounds
 2. C/C++
 3. C/C++ Compile Run
 4. C/C++ GNU Global
