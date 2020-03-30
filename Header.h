@@ -16,7 +16,7 @@ void ChangePerson();
 void DeletePerson();
 void DeleteAll();
 void Quit();
-bool IsExist();
+int IsExist(std::string name);
 
 struct Person{
 	std::string m_name,
