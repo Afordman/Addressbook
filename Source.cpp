@@ -1,5 +1,5 @@
 // Functions
-// v0.1 ²ÉÓÃË³Ğò±í£¬Ö®ºó½«²ÉÓÃÁ´±íÒÔÌá¸ßĞ§ÂÊ
+// v0.1 é‡‡ç”¨é¡ºåºè¡¨ï¼Œä¹‹åå°†é‡‡ç”¨é“¾è¡¨ä»¥æé«˜æ•ˆç‡
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -8,35 +8,35 @@
 
 using namespace std;
 
-// newÒ»¸ö
+// newä¸€ä¸ª
 Person * pt = new Person[ArSize];
 int nowSize = 0;
 
 void Init()
 {
-	// ¹Ø±ÕÌáÊ¾
+	// å…³é—­æç¤º
 	system("@echo off");
 
-	// ¸ü¸Ä±êÌâ
-	system("title ÁªÏµÈËĞ¡³ÌĞò v0.1");
+	// æ›´æ”¹æ ‡é¢˜
+	system("title è”ç³»äººå°ç¨‹åº v0.1");
 
-	// ²éÕÒÊÇ·ñÓĞData.txt
+	// æŸ¥æ‰¾æ˜¯å¦æœ‰Data.txt
 	ifstream fin("Data.txt");
 	bool pd = true;
-	if (!fin)	// Ã»ÕÒµ½¾Í´´½¨
+	if (!fin)	// æ²¡æ‰¾åˆ°å°±åˆ›å»º
 	{
 		ofstream fout("Data.txt");
 		fout << '0';
 		pd = false;
 	}
-	else	// ÕÒµ½ÁË±ã¸Ä³É1
+	else	// æ‰¾åˆ°äº†ä¾¿æ”¹æˆ1
 	{
 		system("del Data.txt");
 		ofstream fout("Data.txt");
 		fout << '1';
 	}
 
-	// ¶ÁÈ¡addressbook.txt
+	// è¯»å–addressbook.txt
 	fin.close();
 	fin.open("addressbook.txt");
 
@@ -45,274 +45,274 @@ void Init()
 	for (register int i = 0; i < num; ++i)	
 		fin >> pt[i].m_name >> pt[i].m_phonenumber >> pt[i].m_address;
 	
-	// Èç¹ûµÚÒ»´Î½øÈë³ÌĞòÔò½øÈë½Ì³Ì
+	// å¦‚æœç¬¬ä¸€æ¬¡è¿›å…¥ç¨‹åºåˆ™è¿›å…¥æ•™ç¨‹
 	if (!pd)
 	{
 		Guide();
-		// µ±Ç°ÈËÊıÎª0
+		// å½“å‰äººæ•°ä¸º0
 		nowSize = 0;
 	}
 	else
 	{
-		cout << "¶ÁÈ¡³É¹¦£¡" << endl;
+		cout << "è¯»å–æˆåŠŸï¼" << endl;
 		nowSize = num;
 	}
 	system("pause");
 	system("cls");
 }
 
-// ½Ì³Ìº¯Êı
+// æ•™ç¨‹å‡½æ•°
 void Guide()
 {
-	cout << "»¶Ó­À´µ½Í¨Ñ¶Â¼Ğ¡³ÌĞò£¡" << endl;
-	cout << "Äú½øÈëÁË½Ì³Ì¡£" << endl;
+	cout << "æ¬¢è¿æ¥åˆ°é€šè®¯å½•å°ç¨‹åºï¼" << endl;
+	cout << "æ‚¨è¿›å…¥äº†æ•™ç¨‹ã€‚" << endl;
 	system("pause");
-	cout << "Ğ¡³ÌĞò½«»áÔÚ³ÌĞòÄ¿Â¼ÏÂ´´½¨Á½¸öÎÄ¼ş£ºAddressbook.txtºÍData.txt"
+	cout << "å°ç¨‹åºå°†ä¼šåœ¨ç¨‹åºç›®å½•ä¸‹åˆ›å»ºä¸¤ä¸ªæ–‡ä»¶ï¼šAddressbook.txtå’ŒData.txt"
 		 << endl
-		 << "ÆäÖĞData.txtÓÃÓÚ±£´æÊ¹ÓÃÊı¾İ£¨0»ò1£©"
+		 << "å…¶ä¸­Data.txtç”¨äºä¿å­˜ä½¿ç”¨æ•°æ®ï¼ˆ0æˆ–1ï¼‰"
 		 << endl
-		 << "Addressbook.txtÓÃÓÚ±£´æÁªÏµÈËÊı¾İ£¬¿ÉÒÔ²é¿´¡£";
-	cout << "ÇëÎğÉ¾³ıÒÔÉÏÁ½¸öÎÄ¼ş£¬·ñÔòºó¹û×Ô¸º¡£" << endl;
+		 << "Addressbook.txtç”¨äºä¿å­˜è”ç³»äººæ•°æ®ï¼Œå¯ä»¥æŸ¥çœ‹ã€‚";
+	cout << "è¯·å‹¿åˆ é™¤ä»¥ä¸Šä¸¤ä¸ªæ–‡ä»¶ï¼Œå¦åˆ™åæœè‡ªè´Ÿã€‚" << endl;
 	system("pause");
-	cout << "½øÈëÖ÷³ÌĞòºóÇë°´ÕÕÒªÇóÊäÈë¡£" << endl;
+	cout << "è¿›å…¥ä¸»ç¨‹åºåè¯·æŒ‰ç…§è¦æ±‚è¾“å…¥ã€‚" << endl;
 	system("pause");
-	cout << "ºÃÀ²£¬½Ì³Ì¾Íµ½ÕâÀïÁË£¬Ê£ÏÂµÄÇë½øÈëÖ÷³ÌĞòÌ½Ë÷°É£¡     :-)" << endl;
+	cout << "å¥½å•¦ï¼Œæ•™ç¨‹å°±åˆ°è¿™é‡Œäº†ï¼Œå‰©ä¸‹çš„è¯·è¿›å…¥ä¸»ç¨‹åºæ¢ç´¢å§ï¼     :-)" << endl;
 	system("pause");
 }
 
-// Ö÷¹¤×÷º¯Êı
+// ä¸»å·¥ä½œå‡½æ•°
 void work()
 {
-	// ³õÊ¼»¯
+	// åˆå§‹åŒ–
 	Init();
 	
-	// ²¼¶ûĞÍ±äÁ¿Return_Value½ÓÊÕshowMenuº¯Êı·µ»ØÖµ
+	// å¸ƒå°”å‹å˜é‡Return_Valueæ¥æ”¶showMenuå‡½æ•°è¿”å›å€¼
 	bool Return_Value = true;
 
-	// Ñ­»·²¿·Ö
+	// å¾ªç¯éƒ¨åˆ†
 	while (true)
 	{
-		// ½ÓÊÕ·µ»ØÖµ£¬true¾Í¼ÌĞø£¬false¾ÍÍË³ö
+		// æ¥æ”¶è¿”å›å€¼ï¼Œtrueå°±ç»§ç»­ï¼Œfalseå°±é€€å‡º
 		Return_Value = showMenu();
 
-		// ¼ÌĞø
+		// ç»§ç»­
 		if (Return_Value)
 		{
-			system("cls");    // Ë¢ĞÂÆÁÄ»
+			system("cls");    // åˆ·æ–°å±å¹•
 			continue;
 		}
 
-		// ÍË³ö
+		// é€€å‡º
 		Quit();
 		return;
 	}
 }
 
-// ÏÔÊ¾²Ëµ¥²¢¶ÁÈ¡ÊäÈëº¯Êı
-// ·µ»ØÖµÎªtrueÔò¼ÌĞø£¬ÎªfalseÔòÍË³ö
+// æ˜¾ç¤ºèœå•å¹¶è¯»å–è¾“å…¥å‡½æ•°
+// è¿”å›å€¼ä¸ºtrueåˆ™ç»§ç»­ï¼Œä¸ºfalseåˆ™é€€å‡º
 bool showMenu()
 {
-	// ÏÔÊ¾²Ëµ¥
-	cout << "Í¨Ñ¶Â¼¹ÜÀíĞ¡³ÌĞò  v0.1 by Afordman" << endl;
+	// æ˜¾ç¤ºèœå•
+	cout << "é€šè®¯å½•ç®¡ç†å°ç¨‹åº  v0.1 by Afordman" << endl;
 	cout << "*********************************" << endl;
-	cout << "1. Ìí¼ÓÁªÏµÈË                    " << endl;
-	cout << "2. ÏÔÊ¾ÁªÏµÈË                    " << endl;
-	cout << "3. ²éÕÒÁªÏµÈË                    " << endl;
-	cout << "4. É¾³ıÁªÏµÈË                    " << endl;
-	cout << "5. Çå¿ÕÁªÏµÈË                    "	<< endl;
-	cout << "6. ¸ü¸ÄÁªÏµÈËĞÅÏ¢                 " << endl;
-	cout << "7. ÍË³ö                          " << endl;
+	cout << "1. æ·»åŠ è”ç³»äºº                    " << endl;
+	cout << "2. æ˜¾ç¤ºè”ç³»äºº                    " << endl;
+	cout << "3. æŸ¥æ‰¾è”ç³»äºº                    " << endl;
+	cout << "4. åˆ é™¤è”ç³»äºº                    " << endl;
+	cout << "5. æ¸…ç©ºè”ç³»äºº                    "	<< endl;
+	cout << "6. æ›´æ”¹è”ç³»äººä¿¡æ¯                 " << endl;
+	cout << "7. é€€å‡º                          " << endl;
 	cout << "*********************************" << endl;
 
-	// ÊäÈë
-	cout << "ÇëÊäÈëÊı×Ö£¨1-7£©£º" << endl;
+	// è¾“å…¥
+	cout << "è¯·è¾“å…¥æ•°å­—ï¼ˆ1-7ï¼‰ï¼š" << endl;
 	char InPut;
 	cin >> InPut;
-	// ²»·ûºÏÒªÇó¾ÍÖØĞÂÊäÈë
+	// ä¸ç¬¦åˆè¦æ±‚å°±é‡æ–°è¾“å…¥
 	while (InPut < '1' || InPut > '7')
 	{
-		cout << endl << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë£º" << endl;
+		cout << endl << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š" << endl;
 		cin >> InPut;
 	}
 
-	// ¸÷ÖÖ¹¦ÄÜ
+	// å„ç§åŠŸèƒ½
 	switch (InPut)
 	{
-		// Ìí¼ÓÁªÏµÈË
+		// æ·»åŠ è”ç³»äºº
 		case '1':
 			AddPerson();
 			break;
 
-		// ÏÔÊ¾ÁªÏµÈË
+		// æ˜¾ç¤ºè”ç³»äºº
 		case '2':
 			ShowPerson();
 			break;
 		
-		// ²éÕÒÁªÏµÈË
+		// æŸ¥æ‰¾è”ç³»äºº
 		case '3':
 			FindPerson();
 			break;
 
-		// É¾³ıÁªÏµÈË
+		// åˆ é™¤è”ç³»äºº
 		case '4':
 			DeletePerson();
 			break;
 
-		// Çå¿ÕÁªÏµÈË
+		// æ¸…ç©ºè”ç³»äºº
 		case '5':
 			DeleteAll();
 			break;
 
-		// ¸ü¸ÄÁªÏµÈËĞÅÏ¢
+		// æ›´æ”¹è”ç³»äººä¿¡æ¯
 		case '6':
 			ChangePerson();
 			break;
 
-		// ÍË³ö
+		// é€€å‡º
 		case '7':
 			return false;
 	}
 
-	// ¼ÌĞø
+	// ç»§ç»­
 	return true;
 }
 
-// Ìí¼ÓÁªÏµÈË
+// æ·»åŠ è”ç³»äºº
 void AddPerson()
 {
-	// ÁÙÊ±ÊäÈëĞÕÃû¡¢¼ÒÍ¥×¡Ö·¡¢µç»°ºÅÂë
+	// ä¸´æ—¶è¾“å…¥å§“åã€å®¶åº­ä½å€ã€ç”µè¯å·ç 
 	string name,
 		   address,
 		   phonenumber;
 
-	// ÅĞ¶ÏÊı×éÊÇ·ñÒÑÂú£¬ÂúÁË¾ÍÊä³ö²¢Ö±½Ó·µ»Ø
+	// åˆ¤æ–­æ•°ç»„æ˜¯å¦å·²æ»¡ï¼Œæ»¡äº†å°±è¾“å‡ºå¹¶ç›´æ¥è¿”å›
 	if (nowSize + 10 >= ArSize)
 	{
-		cout << "\n¿Õ¼äÒÑÂú£¬ÇëÉ¾³ıÁªÏµÈËÒÔÌí¼Ó\n";
+		cout << "\nç©ºé—´å·²æ»¡ï¼Œè¯·åˆ é™¤è”ç³»äººä»¥æ·»åŠ \n";
 		system("pause");
 		system("cls");
 		return;
 	}
 	
-	// ÊäÈë
-	cout << "\nÇëÊäÈëĞÂµÄÁªÏµÈËĞÅÏ¢£º£¨ÇëÎğ°üº¬¿Õ¸ñ£©\n";
-	cout << "ĞÕÃû£º";
+	// è¾“å…¥
+	cout << "\nè¯·è¾“å…¥æ–°çš„è”ç³»äººä¿¡æ¯ï¼šï¼ˆè¯·å‹¿åŒ…å«ç©ºæ ¼ï¼‰\n";
+	cout << "å§“åï¼š";
 	cin >> name;
-	cout << "µç»°ºÅÂë£º";
+	cout << "ç”µè¯å·ç ï¼š";
 	cin >> phonenumber;
-	cout << "¼ÒÍ¥×¡Ö·£º";
+	cout << "å®¶åº­ä½å€ï¼š";
 	cin >> address;
 	
-	// ¸³Öµ
+	// èµ‹å€¼
 	pt[nowSize].m_address = address;
 	pt[nowSize].m_name = name;
 	pt[nowSize].m_phonenumber = phonenumber;
 
-	// ÈËÊı¼Ó1
+	// äººæ•°åŠ 1
 	++nowSize;
 
-	cout << "\nÌí¼Ó³É¹¦£¡\n";
+	cout << "\næ·»åŠ æˆåŠŸï¼\n";
 	system("pause");
 	system("cls");
 }
 
-// ÏÔÊ¾ÁªÏµÈË
+// æ˜¾ç¤ºè”ç³»äºº
 void ShowPerson()
 {
-	// »»ĞĞ
+	// æ¢è¡Œ
 	cout << endl;
 
-	// forÑ­»·Êä³öÁªÏµÈËĞÅÏ¢
+	// forå¾ªç¯è¾“å‡ºè”ç³»äººä¿¡æ¯
 	for (register int i = 0; i < nowSize; i++)
-		cout << "ĞÕÃû£º" << pt[i].m_name
-			 << "\tµç»°ºÅÂë£º" << pt[i].m_phonenumber
-			 << "\t¼ÒÍ¥×¡Ö·£º" << pt[i].m_address << endl;
+		cout << "å§“åï¼š" << pt[i].m_name
+			 << "\tç”µè¯å·ç ï¼š" << pt[i].m_phonenumber
+			 << "\tå®¶åº­ä½å€ï¼š" << pt[i].m_address << endl;
 
-	cout << "\nÊä³öÍê³É£¡\n";
+	cout << "\nè¾“å‡ºå®Œæˆï¼\n";
 	system("pause");
 	system("cls"); 
 }
 
-// ²éÕÒÁªÏµÈË
+// æŸ¥æ‰¾è”ç³»äºº
 void FindPerson()
 {
-	// ÁÙÊ±ÊäÈë
+	// ä¸´æ—¶è¾“å…¥
 	string name;
 	
-	// ÊäÈë
-	cout << "ÇëÊäÈëÏëÒª²éÕÒµÄÁªÏµÈËĞÕÃû£º\n";
+	// è¾“å…¥
+	cout << "è¯·è¾“å…¥æƒ³è¦æŸ¥æ‰¾çš„è”ç³»äººå§“åï¼š\n";
 	cin >> name;
 	
-	// ²éÕÒÊÇ·ñÓĞÕâ¸öÈË
+	// æŸ¥æ‰¾æ˜¯å¦æœ‰è¿™ä¸ªäºº
 	int Return_Value = IsExist(name);
 
-	// Ã»ÕÒµ½
+	// æ²¡æ‰¾åˆ°
 	if (Return_Value == -1)
 	{
-		cout << "\n²éÎŞ´ËÈË£¡\n";
+		cout << "\næŸ¥æ— æ­¤äººï¼\n";
 		system("pause");
 		system("cls");
 		return;
 	}
-	// ÕÒµ½ÁË¾ÍÊä³ö
+	// æ‰¾åˆ°äº†å°±è¾“å‡º
 	else
 	{
-		cout << "\nĞÕÃû£º" << pt[Return_Value].m_name << endl;
-		cout << "\tµç»°ºÅÂë£º" << pt[Return_Value].m_phonenumber << endl;
-		cout << "\t¼ÒÍ¥×¡Ö·£º" << pt[Return_Value].m_address << endl;
+		cout << "\nå§“åï¼š" << pt[Return_Value].m_name << endl;
+		cout << "\tç”µè¯å·ç ï¼š" << pt[Return_Value].m_phonenumber << endl;
+		cout << "\tå®¶åº­ä½å€ï¼š" << pt[Return_Value].m_address << endl;
 
 		system("pause");
 		system("cls");
 	}
 }
 
-// ÅĞ¶ÏÁªÏµÈËÊÇ·ñ´æÔÚ
+// åˆ¤æ–­è”ç³»äººæ˜¯å¦å­˜åœ¨
 int IsExist(string name)
 {
 
 	for (register int i = 0; i < nowSize; i++)
-		// ÕÒµ½ÁË¾Í·µ»ØÎ»ÖÃ
+		// æ‰¾åˆ°äº†å°±è¿”å›ä½ç½®
 		if (pt[i].m_name == name)
 			return i;
 
-	// Ã»ÕÒµ½·µ»Ø-1£¨ÒòÎªÊı×éÏÂ±ê´Ó0¿ªÊ¼Âï£©
+	// æ²¡æ‰¾åˆ°è¿”å›-1ï¼ˆå› ä¸ºæ•°ç»„ä¸‹æ ‡ä»0å¼€å§‹å˜›ï¼‰
 	return -1;
 }
 
-// ¸ü¸ÄÁªÏµÈËĞÅÏ¢
+// æ›´æ”¹è”ç³»äººä¿¡æ¯
 void ChangePerson()
 {
-	// ¶ÁÈ¡ÊäÈëµÄ±äÁ¿
+	// è¯»å–è¾“å…¥çš„å˜é‡
 	string name,
 		   phonenumber,
 		   address;
 	
-	// ÊäÈë
-	cout << "\nÇëÊäÈëÄúÏë¸ü¸ÄµÄÁªÏµÈËĞÕÃû£º\n";
+	// è¾“å…¥
+	cout << "\nè¯·è¾“å…¥æ‚¨æƒ³æ›´æ”¹çš„è”ç³»äººå§“åï¼š\n";
 	cin >> name;
 
-	// ²éÕÒÊÇ·ñÓĞÕâ¸öÈË
+	// æŸ¥æ‰¾æ˜¯å¦æœ‰è¿™ä¸ªäºº
 	int Return_Value = IsExist(name);
 
-	// Ã»ÕÒµ½
+	// æ²¡æ‰¾åˆ°
 	if (Return_Value == -1)
 	{
-		cout << "\n²éÎŞ´ËÈË£¡\n";
+		cout << "\næŸ¥æ— æ­¤äººï¼\n";
 		system("pause");
 		system("cls");
 		return;
 	}
-	// ÕÒµ½ÁË¾ÍÊäÈë²¢´æ´¢
+	// æ‰¾åˆ°äº†å°±è¾“å…¥å¹¶å­˜å‚¨
 	else
 	{
-		cout << "\nĞÕÃû£º" << endl;
+		cout << "\nå§“åï¼š" << endl;
 		cin >> name;
-		cout << "µç»°ºÅÂë£º" << endl;
+		cout << "ç”µè¯å·ç ï¼š" << endl;
 		cin >> phonenumber;
-		cout << "¼ÒÍ¥×¡Ö·£º" << endl;
+		cout << "å®¶åº­ä½å€ï¼š" << endl;
 		cin >> address;
 
-		// ´æ´¢£¨¸²¸ÇÖ®Ç°ĞÅÏ¢£©
+		// å­˜å‚¨ï¼ˆè¦†ç›–ä¹‹å‰ä¿¡æ¯ï¼‰
 		pt[Return_Value].m_name = name;
 		pt[Return_Value].m_address = address;
 		pt[Return_Value].m_phonenumber = phonenumber;
@@ -322,61 +322,61 @@ void ChangePerson()
 	}
 }
 
-// É¾³ıÖ¸¶¨ÁªÏµÈË
+// åˆ é™¤æŒ‡å®šè”ç³»äºº
 void DeletePerson()
 {
-	// ¶ÁÈ¡ÊäÈëÁªÏµÈËĞÕÃûµÄ±äÁ¿
+	// è¯»å–è¾“å…¥è”ç³»äººå§“åçš„å˜é‡
 	string name;
 
-	// ÊäÈë
+	// è¾“å…¥
 	cin >> name;
 
-	// ²éÕÒÊÇ·ñÓĞÕâ¸öÈË
+	// æŸ¥æ‰¾æ˜¯å¦æœ‰è¿™ä¸ªäºº
 	int Return_Value = IsExist(name);
 
-	// Ã»ÕÒµ½
+	// æ²¡æ‰¾åˆ°
 	if (Return_Value == -1)
 	{
-		cout << "\n²éÎŞ´ËÈË£¡\n";
+		cout << "\næŸ¥æ— æ­¤äººï¼\n";
 		system("pause");
 		system("cls");
 		return;
 	}
-	// ÕÒµ½ÁË¾ÍÉ¾³ı£¨Êı×éÔªËØÇ°ÒÆ£¬¸²¸ÇÖ®Ç°µÄĞÅÏ¢£©
+	// æ‰¾åˆ°äº†å°±åˆ é™¤ï¼ˆæ•°ç»„å…ƒç´ å‰ç§»ï¼Œè¦†ç›–ä¹‹å‰çš„ä¿¡æ¯ï¼‰
 	else
 	{
 		for (register int i = nowSize-1; i >= Return_Value; i--)
-			pt[i-1] = pt[i];	// ÕûÌå¸³Öµ
+			pt[i-1] = pt[i];	// æ•´ä½“èµ‹å€¼
 
-		cout << "\nÉ¾³ı³É¹¦£¡\n";
+		cout << "\nåˆ é™¤æˆåŠŸï¼\n";
 
 		system("pause");
 		system("cls");
 	}
 }
 
-// Çå¿ÕÁªÏµÈË
+// æ¸…ç©ºè”ç³»äºº
 void DeleteAll()
 {
-	// chÓÃÓÚ¶ÁÈ¡×Ö·ûÊäÈë
+	// chç”¨äºè¯»å–å­—ç¬¦è¾“å…¥
 	char ch;
 
-	cout << "\nÄúÕæµÄÏëÒªÇå¿ÕÁªÏµÈËÂğ£¿£¨´Ë²Ù×÷²»¿ÉÄæ£©[Y/N]\n";
+	cout << "\næ‚¨çœŸçš„æƒ³è¦æ¸…ç©ºè”ç³»äººå—ï¼Ÿï¼ˆæ­¤æ“ä½œä¸å¯é€†ï¼‰[Y/N]\n";
 	cin >> ch;
 
-	// ÓÃ»§È¡Ïû²Ù×÷
+	// ç”¨æˆ·å–æ¶ˆæ“ä½œ
 	if (ch != 'Y' && ch != 'y')
 	{
-		cout << "²Ù×÷ÒÑÈ¡Ïû\n";
+		cout << "æ“ä½œå·²å–æ¶ˆ\n";
 		system("pause");
 		system("cls");
 		return;
 	}
 
-	// È·ÈÏ²Ù×÷
-	cout << "ÕıÔÚÇå¿Õ¡£¡£¡£\n";
+	// ç¡®è®¤æ“ä½œ
+	cout << "æ­£åœ¨æ¸…ç©ºã€‚ã€‚ã€‚\n";
 	
-	// Çå¿Õ
+	// æ¸…ç©º
 	for (register int i = 0; i < ArSize; i++)
 	{
 		pt[i].m_address = "";
@@ -385,26 +385,26 @@ void DeleteAll()
 	}
 	nowSize = 0;
 
-	cout << "\nÍ¨Ñ¶Â¼ÒÑÇå¿Õ£¡\n";
+	cout << "\né€šè®¯å½•å·²æ¸…ç©ºï¼\n";
 
 	system("pause");
 	system("cls");
 }
 
-// ±£´æ²¢ÍÆ³ö
+// ä¿å­˜å¹¶æ¨å‡º
 void Quit()
 {
-	// chÓÃÓÚ¶ÁÈ¡ÊäÈë
+	// chç”¨äºè¯»å–è¾“å…¥
 	char ch;
 
-	cout << "ÄúÏë±£´æ¸ü¸ÄÂğ£¿[Y/N]\n";
+	cout << "æ‚¨æƒ³ä¿å­˜æ›´æ”¹å—ï¼Ÿ[Y/N]\n";
 	cin >> ch;
 
 	if (ch == 'Y' || ch == 'y')
 	{
-		cout << "\n±£´æÖĞ¡£¡£¡£\n";
+		cout << "\nä¿å­˜ä¸­ã€‚ã€‚ã€‚\n";
 
-		// ÎÄ¼şÊä³ö
+		// æ–‡ä»¶è¾“å‡º
 		ofstream fout("Addressbook.txt");
 		fout << nowSize << endl;
 		for (register int i = 0; i < nowSize; i++)
@@ -412,24 +412,24 @@ void Quit()
 				 << pt[i].m_address << ' '
 				 << pt[i].m_phonenumber;
 
-		cout << "\n±£´æÍê±Ï£¡\n";
+		cout << "\nä¿å­˜å®Œæ¯•ï¼\n";
 		system("pause");
 		system("cls");
 	}
 
-	cout << "ÕıÔÚÍË³ö¡£¡£¡£\n";
+	cout << "æ­£åœ¨é€€å‡ºã€‚ã€‚ã€‚\n";
 	system("pause");
 	system("cls");
 }
 
-// Ö÷º¯Êıµ÷ÓÃ£¬³ÌĞò´ÓÕâÀï¿ªÊ¼£¬´ÓÕâÀï½áÊø
+// ä¸»å‡½æ•°è°ƒç”¨ï¼Œç¨‹åºä»è¿™é‡Œå¼€å§‹ï¼Œä»è¿™é‡Œç»“æŸ
 int main(void)
 {
 	work();
-	delete [] pt;	// ÊÍ·Å¶Ñ¿Õ¼ä
+	delete [] pt;	// é‡Šæ”¾å †ç©ºé—´
 
 	return 0;
 }
 
 // By Afordman Cai
-// Ô´´úÂëÒÑÉÏ´«Github£¬ÍøÖ·Îª£ºhttps://github.com/Afordman/Addressbook
+// æºä»£ç å·²ä¸Šä¼ Githubï¼Œç½‘å€ä¸ºï¼šhttps://github.com/Afordman/Addressbook
