@@ -52,7 +52,10 @@ void Init()
 		nowSize = 0;
 	}
 	else
-		cout << "读取成功！\n";
+	{
+		cout << "读取成功！" << endl;
+		nowSize = num;
+	}
 	system("pause");
 	system("cls");
 }
@@ -171,4 +174,84 @@ bool showMenu()
 
 	// 继续
 	return true;
+}
+
+// 添加联系人
+void AddPerson()
+{
+	// 临时输入姓名、家庭住址、电话号码
+	string name,
+		   address,
+		   phonenumber;
+	
+	// 输入
+	cout << "\n请输入新的联系人信息：（请勿包含空格）\n";
+	cout << "姓名：";
+	cin >> name;
+	cout << "电话号码：";
+	cin >> phonenumber;
+	cout << "家庭住址：";
+	cin >> address;
+	
+	// 赋值
+	pt[nowSize].m_address = address;
+	pt[nowSize].m_name = name;
+	pt[nowSize].m_phonenumber = phonenumber;
+
+	// 人数加1
+	++nowSize;
+
+	cout << "\n添加成功！\n";
+	system("pause");
+	system("cls");
+}
+
+// 显示联系人
+void ShowPerson()
+{
+	// 换行
+	cout << endl;
+
+	// for循环输出联系人信息
+	for (register int i = 0; i < nowSize; i++)
+		cout << "姓名：" << pt[i].m_name
+			 << "\t电话号码：" << pt[i].m_phonenumber
+			 << "\t家庭住址：" << pt[i].m_address << endl;
+
+	cout << "\n输出完成！\n";
+	system("pause");
+	system("cls"); 
+}
+
+// 查找联系人
+void FindPerson()
+{
+	// 临时输入
+	string name;
+	
+	// 输入
+	cout << "请输入想要查找的联系人姓名：\n";
+	cin >> name;
+	
+	// 查找是否有这个人
+	int Return_Value = IsExist(name);
+
+	// 没找到
+	if (Return_Value == -1)
+	{
+		cout << "\n查无此人！\n";
+		system("pause");
+		system("cls");
+		return;
+	}
+	// 找到了就输出
+	else
+	{
+		cout << "\n姓名：" << pt[Return_Value].m_name << endl;
+		cout << "\t电话号码：" << pt[Return_Value].m_phonenumber << endl;
+		cout << "\t家庭住址：" << pt[Return_Value].m_address << endl;
+
+		system("pause");
+		system("cls");
+	}
 }

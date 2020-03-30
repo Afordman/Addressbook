@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "xstring": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iostream": "cpp"
     }
 }
