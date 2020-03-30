@@ -1,4 +1,5 @@
 // Functions
+// v0.1 采用顺序表，之后将采用链表以提高效率
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -183,6 +184,15 @@ void AddPerson()
 	string name,
 		   address,
 		   phonenumber;
+
+	// 判断数组是否已满，满了就输出并直接返回
+	if (nowSize + 10 >= ArSize)
+	{
+		cout << "\n空间已满，请删除联系人以添加\n";
+		system("pause");
+		system("cls");
+		return;
+	}
 	
 	// 输入
 	cout << "\n请输入新的联系人信息：（请勿包含空格）\n";
@@ -255,3 +265,171 @@ void FindPerson()
 		system("cls");
 	}
 }
+
+// 判断联系人是否存在
+int IsExist(string name)
+{
+
+	for (register int i = 0; i < nowSize; i++)
+		// 找到了就返回位置
+		if (pt[i].m_name == name)
+			return i;
+
+	// 没找到返回-1（因为数组下标从0开始嘛）
+	return -1;
+}
+
+// 更改联系人信息
+void ChangePerson()
+{
+	// 读取输入的变量
+	string name,
+		   phonenumber,
+		   address;
+	
+	// 输入
+	cout << "\n请输入您想更改的联系人姓名：\n";
+	cin >> name;
+
+	// 查找是否有这个人
+	int Return_Value = IsExist(name);
+
+	// 没找到
+	if (Return_Value == -1)
+	{
+		cout << "\n查无此人！\n";
+		system("pause");
+		system("cls");
+		return;
+	}
+	// 找到了就输入并存储
+	else
+	{
+		cout << "\n姓名：" << endl;
+		cin >> name;
+		cout << "电话号码：" << endl;
+		cin >> phonenumber;
+		cout << "家庭住址：" << endl;
+		cin >> address;
+
+		// 存储（覆盖之前信息）
+		pt[Return_Value].m_name = name;
+		pt[Return_Value].m_address = address;
+		pt[Return_Value].m_phonenumber = phonenumber;
+
+		system("pause");
+		system("cls");
+	}
+}
+
+// 删除指定联系人
+void DeletePerson()
+{
+	// 读取输入联系人姓名的变量
+	string name;
+
+	// 输入
+	cin >> name;
+
+	// 查找是否有这个人
+	int Return_Value = IsExist(name);
+
+	// 没找到
+	if (Return_Value == -1)
+	{
+		cout << "\n查无此人！\n";
+		system("pause");
+		system("cls");
+		return;
+	}
+	// 找到了就删除（数组元素前移，覆盖之前的信息）
+	else
+	{
+		for (register int i = nowSize-1; i >= Return_Value; i--)
+			pt[i-1] = pt[i];	// 整体赋值
+
+		cout << "\n删除成功！\n";
+
+		system("pause");
+		system("cls");
+	}
+}
+
+// 清空联系人
+void DeleteAll()
+{
+	// ch用于读取字符输入
+	char ch;
+
+	cout << "\n您真的想要清空联系人吗？（此操作不可逆）[Y/N]\n";
+	cin >> ch;
+
+	// 用户取消操作
+	if (ch != 'Y' && ch != 'y')
+	{
+		cout << "操作已取消\n";
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	// 确认操作
+	cout << "正在清空。。。\n";
+	
+	// 清空
+	for (register int i = 0; i < ArSize; i++)
+	{
+		pt[i].m_address = "";
+		pt[i].m_name = "";
+		pt[i].m_phonenumber	= "";
+	}
+	nowSize = 0;
+
+	cout << "\n通讯录已清空！\n";
+
+	system("pause");
+	system("cls");
+}
+
+// 保存并推出
+void Quit()
+{
+	// ch用于读取输入
+	char ch;
+
+	cout << "您想保存更改吗？[Y/N]\n";
+	cin >> ch;
+
+	if (ch == 'Y' || ch == 'y')
+	{
+		cout << "\n保存中。。。\n";
+
+		// 文件输出
+		ofstream fout("Addressbook.txt");
+		fout << nowSize << endl;
+		for (register int i = 0; i < nowSize; i++)
+			fout << pt[i].m_name
+				 << pt[i].m_address
+				 << pt[i].m_phonenumber;
+
+		cout << "\n保存完毕！\n";
+		system("pause");
+		system("cls");
+	}
+
+	cout << "正在退出。。。\n";
+	system("pause");
+	system("cls");
+}
+
+// 主函数调用，程序从这里开始，从这里结束
+int main(void)
+{
+	work();
+	delete [] pt;	// 释放堆空间
+
+	return 0;
+}
+
+// By Afordman Cai
+// 源代码已上传Github，网址为：https://github.com/Afordman/Addressbook
