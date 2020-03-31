@@ -192,7 +192,7 @@ void AddPerson()
 		system("pause");
 		system("cls");
 		return;
-	}
+  }
 	
 	// 输入
 	cout << "\n请输入新的联系人信息：（请勿包含空格）\n";
@@ -264,6 +264,7 @@ void FindPerson()
 		system("pause");
 		system("cls");
 	}
+
 }
 
 // 判断联系人是否存在
@@ -433,3 +434,5 @@ int main(void)
 
 // By Afordman Cai
 // 源代码已上传Github，网址为：https://github.com/Afordman/Addressbook
+
+
