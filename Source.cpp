@@ -329,6 +329,8 @@ void DeletePerson()
 	// 读取输入联系人姓名的变量
 	string name;
 
+	cout << "请输入需要删除的联系人姓名：\n";
+
 	// 输入
 	cin >> name;
 
